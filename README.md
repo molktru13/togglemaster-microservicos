@@ -39,7 +39,7 @@ O MVP monolítico do **ToggleMaster** evoluiu para um ecossistema de **5 microse
 
 ## 🏗️ Arquitetura
 
-![Arquitetura ToggleMaster](diagrama/preview.png)
+![Arquitetura ToggleMaster](diagrama.png)
 
 > Diagrama interativo.
 

@@ -161,9 +161,8 @@ O `analytics-service` é **orientado a eventos**: seu trabalho só existe quando
 - **Codificação (encoding)** ao testar endpoints com acentos via PowerShell (usado UTF-8 explícito nos testes).
 - **Nome da instância `t3.medium` não é elegível ao Free Tier** → ajuste para `t3.small` no nodegroup.
 
-### 8. Pontuação Extra (opcional)
+### 8. Pontuação Extra
 
-- [x] Trilha **Google Cloud Skills Boost** concluída: **SIM**
 - [x] Link do perfil/badge público: [Perfil Google Cloud Skills Boost](https://www.skills.google/public_profiles/e4934908-5914-4f7d-b495-a0d72fd9c16b)
 
 ---

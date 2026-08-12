@@ -5,7 +5,7 @@
 
 | Nome | RM | E-mail |
 |---|---|---|
-| [Marcílio Alves Galindo] | [374871] | [marcilio@workmail.com] |
+| Marcílio Alves Galindo | 374871 | marcilio@workmail.com |
 
 
 ---

@@ -73,7 +73,7 @@ O MVP monolítico do **ToggleMaster** evoluiu para um ecossistema de **5 microse
 
 ## 🎬 Vídeo de Demonstração
 
-- **Link do vídeo (YouTube ou outro):** [https://drive.google.com/file/d/1ubTlU8-fDnGvM2LV7BG524DaMdUQ0f-h/view](https://drive.google.com/file/d/1ubTlU8-fDnGvM2LV7BG524DaMdUQ0f-h/view)
+- **Link do vídeo:** [https://drive.google.com/file/d/1ubTlU8-fDnGvM2LV7BG524DaMdUQ0f-h/view](https://drive.google.com/file/d/1ubTlU8-fDnGvM2LV7BG524DaMdUQ0f-h/view)
 
 ---
 

@@ -1,0 +1,116 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate-auth
+  namespace: togglemaster-auth
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: psql
+          image: postgres:15-alpine
+          env:
+            - name: PGPASSWORD
+              value: "CHANGE_ME_PASSWORD"
+            - name: PGHOST
+              value: "CHANGE_ME_AUTH_HOST.us-east-1.rds.amazonaws.com"
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: "postgres"
+            - name: PGDATABASE
+              value: "auth_db"
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Aguardando RDS..."
+              until pg_isready -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$PGDATABASE"; do sleep 3; done
+              psql -v ON_ERROR_STOP=1 -f /sql/init.sql
+              echo "Migração auth concluída"
+          volumeMounts:
+            - name: sql
+              mountPath: /sql
+      volumes:
+        - name: sql
+          configMap:
+            name: db-sql-auth
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate-flags
+  namespace: togglemaster-flags
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: psql
+          image: postgres:15-alpine
+          env:
+            - name: PGPASSWORD
+              value: "CHANGE_ME_PASSWORD"
+            - name: PGHOST
+              value: "CHANGE_ME_FLAGS_HOST.us-east-1.rds.amazonaws.com"
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: "postgres"
+            - name: PGDATABASE
+              value: "flags_db"
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Aguardando RDS..."
+              until pg_isready -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$PGDATABASE"; do sleep 3; done
+              psql -v ON_ERROR_STOP=1 -f /sql/init.sql
+              echo "Migração flags concluída"
+          volumeMounts:
+            - name: sql
+              mountPath: /sql
+      volumes:
+        - name: sql
+          configMap:
+            name: db-sql-flags
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate-targeting
+  namespace: togglemaster-targeting
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: psql
+          image: postgres:15-alpine
+          env:
+            - name: PGPASSWORD
+              value: "CHANGE_ME_PASSWORD"
+            - name: PGHOST
+              value: "CHANGE_ME_TARGETING_HOST.us-east-1.rds.amazonaws.com"
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: "postgres"
+            - name: PGDATABASE
+              value: "targeting_db"
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Aguardando RDS..."
+              until pg_isready -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$PGDATABASE"; do sleep 3; done
+              psql -v ON_ERROR_STOP=1 -f /sql/init.sql
+              echo "Migração targeting concluída"
+          volumeMounts:
+            - name: sql
+              mountPath: /sql
+      volumes:
+        - name: sql
+          configMap:
+            name: db-sql-targeting

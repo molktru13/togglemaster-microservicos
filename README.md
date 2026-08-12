@@ -79,7 +79,7 @@ O MVP monolítico do **ToggleMaster** evoluiu para um ecossistema de **5 microse
 
 ## ✅ Resumo da Entrega
 
-> ⚠️ **Aviso:** os arquivos `k8s/*-secret*.yaml` deste repositório contêm **valores placeholder** (`CHANGE_ME`, endereços fictícios) — por segurança, as credenciais reais (senhas RDS, endpoints Redis/SQS, chaves de API) **não são versionadas**.
+> ⚠️ **Aviso:** os arquivos `k8s/*-secret*.yaml` deste repositório contêm **valores placeholder** (`CHANGE_ME`, endereços fictícios) — por segurança.
 
 ### 1. Conteinerização (Docker)
 
